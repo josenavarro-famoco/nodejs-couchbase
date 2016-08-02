@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-couchbase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.2",
+    "couchbase": "~2.1.8",
+    "express": "^4.13.3",
+    "ottoman": "git+https://github.com/couchbaselabs/node-ottoman.git",
+    "hashids": "*",
+    "multer":"*"
+  }
+}
