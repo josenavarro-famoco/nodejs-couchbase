@@ -4,15 +4,19 @@ ottoman.bucket = require("../db").bucket;
 
 var PlaceMdl = ottoman.model("Place", {
     createdON: {type: "Date", default:function(){return new Date()}},
+    type: { type: 'string', default: 'place'},
     name: "string",
     address: {
-      street: "string",
-      city: "string",
-      state: "string",
-      zip: "integer",
-      country: {type: "string", default: "USA"}
+      street: {type: "string", default: ""},
+      city: {type: "string", default: ""},
+      country: {type: "string", default: ""}
     },
-    type: { type: 'string', default: 'place'}
+    image: { type: 'string', default: ''},
+    location: {
+      lat: 'number',
+      long: 'number'
+    },
+    rating: { type: 'number', default: '0'},
 }, {
     index: {
         findByName: {

@@ -7,21 +7,10 @@ var appRouter = function(app) {
       if(error) {
         return res.status(400).send(error);
       }
-      res.send(places);
+      console.log('PLACES: ' + places);
+      res.send({ result: 'success', data: places});
     });
   });
-
-  // app.get("/api/places/:placeId", function(req, res) {
-  //   if(!req.params.placeId) {
-  //     return res.status(400).send({"status": "error", "message": "A place id is required"});
-  //   }
-  //   PlaceModel.getById(req.params.placeId, function(error, place) {
-  //     if(error) {
-  //       return res.status(400).send(error);
-  //     }
-  //     res.send(place);
-  //   });
-  // });
 
   app.get("/api/places/:placeId", function(req, res) {
     if(!req.params.placeId) {
@@ -31,7 +20,7 @@ var appRouter = function(app) {
       if(error) {
         return res.status(400).send(error);
       }
-      res.send(place);
+      res.send({ result: 'succes', data: place});
     });
   });
 
@@ -41,9 +30,12 @@ var appRouter = function(app) {
       address: {
         street: req.body.address.street,
         city: req.body.address.city,
-        state: req.body.address.state,
-        zip: req.body.address.zip,
         country: req.body.address.country
+      },
+      image: req.body.address.image,
+      location: {
+        lat: req.body.location.lat,
+        long: req.body.location.long
       }
     });
     place.save(function(error, result) {

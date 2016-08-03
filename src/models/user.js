@@ -4,7 +4,8 @@ ottoman.bucket = require("../db").bucket;
 
 var UserMdl = ottoman.model("User", {
     createdON: {type: "Date", default:function(){return new Date()}},
-    name: {
+    type: {type: "string", default:'user'},
+    username: {
         first: "string",
         last: "string"},
     email: "string",

@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 
 var path = require("path");
 var config = require("../config");
+var port = config.port || 5000;
 var app = express();
 
 app.use(bodyParser.json());
@@ -15,7 +16,6 @@ app.use(function(req, res, next) {
 });
 
 // All endpoints to be used in this application
-var company = require("./api/company.js")(app);
 var user = require("./api/user.js")(app);
 var place = require("./api/place.js")(app);
 
@@ -23,6 +23,6 @@ app.get("/", function(req, res) {
     res.end('Hello');
 });
 
-var server = app.listen(3000, function() {
+var server = app.listen(port, function() {
     console.log("Listening on port %s...", server.address().port);
 });

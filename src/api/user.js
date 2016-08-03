@@ -11,7 +11,7 @@ var appRouter = function(app) {
             if(error) {
                 return res.status(400).send(error);
             }
-            res.send(user);
+            res.send({result:'success', message:'user information', data: user});
         });
     });
 
@@ -20,7 +20,7 @@ var appRouter = function(app) {
             if(error) {
                 return res.status(400).send(error);
             }
-            res.send(users);
+            res.send({result:'success', message:'users list', data: users});
         });
     });
 
